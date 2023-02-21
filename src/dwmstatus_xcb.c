@@ -52,7 +52,8 @@ int main()
 	while (keep_running) {
 		if (snd_mixer_wait(alsa_handle, STATUS_REFRESH_RATE_REG * 1000) == 0) {
 			snd_mixer_handle_events(alsa_handle);
-			volume = alsa_get_max_vol(alsa_handle) / 100;
+			//volume = alsa_get_max_vol(alsa_handle) / alsa_vol_unit;
+			volume = alsa_volume_percent(alsa_handle, alsa_vol_unit);
 		}
 
 		if (counter >= STATUS_REFRESH_RATE_LOW) {
@@ -75,7 +76,7 @@ int main()
 		}
 
 		snprintf(status, sizeof(status),
-			"%s \u2502 %0.02fGHz \u2502 %u\u00B0C \u2502 [%s] \u2502 vol: %d \u2502 %d:%02d \u2502 %s ",
+			"%s \u2502 %0.02fGHz \u2502 %u\u00B0C \u2502 [%s] \u2502 Vol: %d%% \u2502 %d:%02d \u2502 %s ",
 			network_status(), cpufreq(), cputemp(), battery_status, volume, up_hours, up_minutes, system_time);
 
 		/* changed root window name */

@@ -19,7 +19,7 @@
 #define CPU_FREQFILE	"/sys/devices/system/cpu/cpufreq/policy0/scaling_cur_freq"
 
 /* File with current temperature of first core */
-#define CPU_TEMPFILE	"/sys/devices/platform/coretemp.0/hwmon/hwmon0/temp1_input"
+#define CPU_TEMPFILE	"/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp2_input"
 
 /* File with current connectivity status of (wired) network interface */
 #define ETH_CARFILE	"/sys/class/net/enp3s0/carrier"
